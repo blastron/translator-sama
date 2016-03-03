@@ -1,0 +1,141 @@
+# Add Japanese word first, then English word, line by line.
+# Skills, titles, and names can go here.
+なし
+(no name)
+深淵魔法
+Abyssal Magic
+ＭＰ回復速度
+Accelerated MP Recovery
+酸耐性
+Acid Resistance
+天の加護
+Aegis of the Heavens
+命中
+Aiming
+瞬発
+Alacrity
+鑑定
+Appraisal
+暗殺者
+Assassin
+ＨＰ自動回復
+Automatic HP Recovery
+魔闘法
+Battle Magic
+気闘法
+Battle Spirit
+外道魔法
+Black Magic
+外道耐性
+Black Resistance
+集中
+Concentration
+腐蝕耐性
+Decay Resistance
+破壊強化
+Destruction Enhancement
+探知
+Detection
+持久
+Endurance
+聴覚強化
+Enhanced Hearing
+嗅覚強化
+Enhanced Smell
+味覚強化
+Enhanced Taste
+触覚強化
+Enhanced Touch
+視覚強化
+Enhanced Vision
+回避
+Evasion
+気絶耐性
+Fainting Resistance
+恐怖耐性
+Fear Resistance
+悪食
+Filth Eater
+剛力
+Greater Strength
+堅牢
+Greater Toughness
+奈落
+Hell
+人族
+Human
+苦痛無効
+Ignore Pain
+韋駄天
+Kartikeya
+血縁喰ライ
+Kin Eater
+ＭＰ消費緩和
+MP Consumption Reduction
+術師
+Magic Power
+魔力付与
+Mana Allocation
+魔力操作
+Mana Manipulation
+魔力感知
+Mana Perception
+魔量
+Mana Pool
+暗視
+Night Vision
+魔力撃
+Offensive Magic
+過食
+Overeating
+痛覚軽減
+Pain Tolerance
+麻痺耐性
+Paralysis Resistance
+石化耐性
+Petrification Resistance
+毒攻撃
+Poison Attack
+毒魔法
+Poison Magic
+毒耐性
+Poison Resistance
+毒合成
+Poison Synthesis
+傲慢
+Pride
+護法
+Resistance
+斬糸
+Severing Thread
+影魔法
+Shadow Magic
+シュレイン・ザガン・アナレイト
+Slaine Zagan Analeicht
+スモールポイズンタラテクト
+Small Poison Taratekt
+疾走
+Speed
+蜘蛛糸
+Spider Silk
+隠密
+Stealth
+強力
+Strength
+剣の才能
+Sword Skill
+禁忌
+Taboo
+操糸
+Thread Manipulation
+投擲
+Throw
+堅固
+Toughness
+視覚領域拡張
+Visible Spectrum Expansion
+生命
+Vitality
+気力付与
+Willpower Allocation
+
