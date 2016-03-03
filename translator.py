@@ -68,7 +68,7 @@ dictionary = read_dictionary_file()
 
 def translate(word):
     """Tries to find translated word. Output as is otherwise."""
-    word = re.sub('　', '', word)
+    word = re.sub('　', ' ', word)
     if word in dictionary:
         return dictionary[word.strip()]
     return word
