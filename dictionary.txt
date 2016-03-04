@@ -112,6 +112,8 @@ Severing Thread
 Shadow Magic
 シュレイン・ザガン・アナレイト
 Slaine Zagan Analeicht
+スモールレッサータラテクト
+Small Lesser Taratekt
 スモールポイズンタラテクト
 Small Poison Taratekt
 疾走
