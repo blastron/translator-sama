@@ -5,6 +5,7 @@ programming language, and a special program is required to run scripts written
 in Python.
 
 How to use it?
+
 1. Copy-paste the Appraisal text from the Japanese website into input.txt
    (See included example). Copy everything from the 『 to the 』
 2. Only one Appraisal block can be translated at any time!
