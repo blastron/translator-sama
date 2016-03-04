@@ -365,7 +365,7 @@ def process_file(in_fname, out_fname):
             with open(in_fname, 'r') as input_file:
                 parsed = parse(input_file.read())
             print_output(parsed, sys.stdout)
-            if args.doprint and out_fname:
+            if not args.doprint and out_fname:
                 with open(out_fname, 'w+') as output_file:
                     print_output(parsed, output_file)
         except:
