@@ -313,6 +313,8 @@ def print_output(parsed, out):
         for skill in parsed['skills']:
             skill_prints.append(print_skill_or_title(skill))
         if args.split_skills:
+            md_quote(out)
+            out.write('\n')
             for skill in skill_prints:
                 if args.md:
                     md_quote(out)
@@ -342,6 +344,8 @@ def print_output(parsed, out):
         for title in parsed['titles']:
             title_prints.append(print_skill_or_title(title))
         if args.split_titles:
+            md_quote(out)
+            out.write('\n')
             for title in title_prints:
                 if args.md:
                     md_quote(out)
