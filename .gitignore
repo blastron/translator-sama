@@ -1,3 +1,9 @@
+test/out/
+errors.txt
+output.txt
+
+*.swp
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
