@@ -1,0 +1,17 @@
+Human ― LV 1 ― Slaine Zagan Analeicht
+
+Statistics:
+HP: 35/35 (green)
+MP: 348/348 (blue)
+SP: 35/35 (yellow), 35/35 (red)
+Avg. Offense: 20
+Avg. Defense: 20
+Avg. Magic Power: 314
+Avg. Resistance: 299
+Avg. Speed: 20
+
+Skills:
+[Mana Perception (LV 8)] • [Mana Manipulation (LV 8)] • [Battle Magic (LV 6)] • [Mana Allocation (LV 5)] • [Offensive Magic (LV 3)] • [Accelerated MP Recovery (LV 7)] • [MP Consumption Reduction (LV 2)] • [Sword Skill (LV 3)] • [Destruction Enhancement (LV 2)] • [Battle Spirit (LV 2)] • [Willpower Allocation (LV 1)] • [Concentration (LV 5)] • [Aiming (LV 1)] • [Evasion (LV 1)] • [Enhanced Vision (LV 4)] • [Enhanced Hearing (LV 7)] • [Enhanced Smell (LV 2)] • [Enhanced Taste (LV 1)] • [Enhanced Touch (LV 1)] • [Vitality (LV 5)] • [Mana Pool (LV 8)] • [Alacrity (LV 5)] • [Endurance (LV 5)] • [Strength (LV 5)] • [Toughness (LV 5)] • [Magic Power (LV 8)] • [Resistance (LV 7)] • [Speed (LV 5)] • [Aegis of the Heavens] • [ｎ％Ｉ＝Ｗ]
+
+Skill points available: 100,000
+
