@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm test/out/*.txt
+rm test/out_md/*
 
 for input in test/in/*.txt
 do
