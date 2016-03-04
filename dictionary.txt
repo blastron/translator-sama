@@ -8,6 +8,8 @@
 Abyssal Magic
 ＭＰ回復速度
 Accelerated MP Recovery
+ＳＰ回復速度
+Accelerated SP Recovery
 酸耐性
 Acid Resistance
 天の加護
@@ -37,7 +39,7 @@ Concentration
 腐蝕耐性
 Decay Resistance
 破壊強化
-Destruction Enhancement
+Damage Enhancement
 探知
 Detection
 エルローランダネル
@@ -62,6 +64,8 @@ Fainting Resistance
 Fear Resistance
 悪食
 Filth Eater
+猛毒攻撃
+Greater Poison Attack
 剛力
 Greater Strength
 堅牢
@@ -104,6 +108,8 @@ Paralysis Resistance
 Petrification Resistance
 毒攻撃
 Poison Attack
+毒強化
+Poison Enhancement
 毒牙
 Poison Fang
 毒魔法
@@ -116,12 +122,16 @@ Poison Synthesis
 Pride
 護法
 Resistance
+ＳＰ消費緩和
+SP Consumption Reduction
 斬糸
 Severing Thread
 影魔法
 Shadow Magic
 シュレイン・ザガン・アナレイト
 Slaine Zagan Analeicht
+斬撃強化
+Slashing Enhancement
 スモールレッサータラテクト
 Small Lesser Taratekt
 スモールポイズンタラテクト
@@ -142,6 +152,8 @@ Sword Skill
 Taboo
 操糸
 Thread Manipulation
+糸の才能
+Thread Talent
 投擲
 Throw
 堅固
