@@ -102,6 +102,8 @@ Paralysis Resistance
 Petrification Resistance
 毒攻撃
 Poison Attack
+毒牙
+Poison Fang
 毒魔法
 Poison Magic
 毒耐性
