@@ -1,6 +1,7 @@
 #!python3
 # coding=utf8
 
+import argparse
 import re
 import string
 import sys
@@ -8,29 +9,26 @@ import traceback
 
 
 ### CONFIGURATION
-# TODO: Use argparse instead.
 
-# Input file goes here. Can be overridden by first command line argument.
-INPUT_FNAME = './input.txt'
+parser = argparse.ArgumentParser(description='Translates Appraisal blocks.')
+parser.add_argument('input', nargs='?', default='./input.txt',
+        help='Japanese input file')
+parser.add_argument('output', nargs='?', default='./output.txt',
+        help='English output file')
+parser.add_argument('--dictionary', nargs='?', default='./dictionary.txt',
+        help='Location of JP->EN dictionary of names')
+parser.add_argument('--error_log', nargs='?', default='./errors.txt',
+        help='Where to store errors')
+parser.add_argument('--split_skills', action='store_true', default=False,
+        help='Print skills one per line.')
+parser.add_argument('--split_titles', action='store_true', default=False,
+        help='Print titles one per line.')
+parser.add_argument('--md', action='store_true', default=False,
+        help='Output Markdown instead of plain text')
+parser.add_argument('--print', action='store_true', default=False,
+        dest='doprint', help='Only print to stdout instead of saving to file')
 
-# Output is written into this file. Override by second command line argument.
-# If input file is overridden, output goes to stdout only.
-OUTPUT_FNAME = './output.txt'
-
-# List of words from JP to EN is here.
-DICTIONARY_FNAME = './dictionary.txt'
-
-# Where to write errors if something goes wrong.
-ERROR_FNAME = './errors.txt'
-
-# If True, skills are broken down line by line. I find this easier to read.
-ONE_SKILL_PER_LINE = False # set to True to activate
-
-# If True, titles are broken down line by line. I find this easier to read.
-ONE_TITLE_PER_LINE = False # set to True to activate
-
-# Output markdown or plain text
-MARKDOWN = True
+args = parser.parse_args()
 
 ##### END OF CONFIGURATION
 
@@ -54,7 +52,7 @@ def read_dictionary_file():
     output = {}
     jp_line = True
     jp_word = None
-    with open(DICTIONARY_FNAME, 'r') as dict_file:
+    with open(args.dictionary, 'r') as dict_file:
         content = dict_file.readlines()
         for line in content:
             line = line.strip()
@@ -254,12 +252,12 @@ def print_skill_or_title(skill):
     return sk_str
 
 def md_quote(out, times=1):
-    if MARKDOWN:
+    if args.md:
         for i in range(times):
             out.write('> ')
 
 def md_break(out):
-    if MARKDOWN:
+    if args.md:
         out.write('  ')  # Write two spaces to force a line break.
     out.write('\n')
 
@@ -314,9 +312,13 @@ def print_output(parsed, out):
         skill_prints = []
         for skill in parsed['skills']:
             skill_prints.append(print_skill_or_title(skill))
-        if ONE_SKILL_PER_LINE:
+        if args.split_skills:
             for skill in skill_prints:
-                stat_line(out, '  • %s' % skill)
+                if args.md:
+                    md_quote(out)
+                    out.write('+ %s\n' % skill)
+                else:
+                    out.write('  • %s\n' % skill)
         else:
             md_quote(out, 2)
             out.write(' • '.join(skill_prints))
@@ -339,9 +341,13 @@ def print_output(parsed, out):
         title_prints = []
         for title in parsed['titles']:
             title_prints.append(print_skill_or_title(title))
-        if ONE_TITLE_PER_LINE:
+        if args.split_titles:
             for title in title_prints:
-                stat_line('  • %s' % title)
+                if args.md:
+                    md_quote(out)
+                    out.write('+ %s\n' % title)
+                else:
+                    out.write('  • %s\n' % title)
         else:
             md_quote(out, 2)
             out.write(' • '.join(title_prints))
@@ -353,24 +359,17 @@ def print_output(parsed, out):
         out.write('Failed to appraise statistics.\n')
 
 def process_file(in_fname, out_fname):
-    with open(ERROR_FNAME, 'w+') as error_file:
+    with open(args.error_log, 'w+') as error_file:
         try:
             parsed = None
             with open(in_fname, 'r') as input_file:
                 parsed = parse(input_file.read())
             print_output(parsed, sys.stdout)
-            if out_fname:
+            if args.doprint and out_fname:
                 with open(out_fname, 'w+') as output_file:
                     print_output(parsed, output_file)
         except:
             traceback.print_exc(None, error_file)
 
 # Main
-in_fname = INPUT_FNAME
-out_fname = OUTPUT_FNAME
-if len(sys.argv) >= 2:
-    in_fname = sys.argv[1]
-    out_fname = None
-if len(sys.argv) >= 3:
-    out_fname = sys.argv[2]
-process_file(in_fname, out_fname)
+process_file(args.input, args.output)
