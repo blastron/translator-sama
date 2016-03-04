@@ -190,7 +190,7 @@ def parse(text):
 
         # For weak appraisal, you can get a one-word summary like "Weak"
         headsplit = [x for x in re.split('　+', lines[1]) if len(x)]
-        if headsplit[0] == STATISTICS and len(headsplit[1]):
+        if headsplit[0] == STATISTICS and len(headsplit) > 1:
             output['stats_summary'] = translate(headsplit[1])
 
         if text.find('ステータスの鑑定に失敗しました') >= 0:

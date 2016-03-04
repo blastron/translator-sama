@@ -118,6 +118,8 @@ Slaine Zagan Analeicht
 Small Lesser Taratekt
 スモールポイズンタラテクト
 Small Poison Taratekt
+スモールタラテクト
+Small Taratekt
 疾走
 Speed
 蜘蛛糸
