@@ -9,10 +9,11 @@ import traceback
 
 ### CONFIGURATION
 
-# Input file goes here.
+# Input file goes here. Can be overridden by first command line argument.
 INPUT_FNAME = './input.txt'
 
-# Output is written into this file.
+# Output is written into this file. Override by second command line argument.
+# If input file is overridden, output goes to stdout only.
 OUTPUT_FNAME = './output.txt'
 
 # List of words from JP to EN is here.
@@ -307,14 +308,25 @@ def print_plain(parsed, out):
 
     out.write('\n')
 
-# Main
-with open(ERROR_FNAME, 'w+') as error_file:
-    try:
-        with open(INPUT_FNAME, 'r') as input_file:
-            parsed = parse(input_file.read())
+def process_file(in_fname, out_fname):
+    with open(ERROR_FNAME, 'w+') as error_file:
+        try:
+            parsed = None
+            with open(in_fname, 'r') as input_file:
+                parsed = parse(input_file.read())
             print_plain(parsed, sys.stdout)
-            with open(OUTPUT_FNAME, 'w+') as output_file:
-                print_plain(parsed, output_file)
-    except:
-        traceback.print_exc(None, error_file)
+            if out_fname:
+                with open(out_fname, 'w+') as output_file:
+                    print_plain(parsed, output_file)
+        except:
+            traceback.print_exc(None, error_file)
 
+# Main
+in_fname = INPUT_FNAME
+out_fname = OUTPUT_FNAME
+if len(sys.argv) >= 2:
+    in_fname = sys.argv[1]
+    out_fname = None
+if len(sys.argv) >= 3:
+    out_fname = sys.argv[2]
+process_file(in_fname, out_fname)
