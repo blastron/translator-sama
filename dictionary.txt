@@ -35,7 +35,7 @@ Battle Spirit
 外道魔法
 Black Magic
 外道耐性
-Black Resistance
+Black Magic Resistance
 集中
 Concentration
 破壊強化
