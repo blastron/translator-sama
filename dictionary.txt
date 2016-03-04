@@ -26,6 +26,8 @@ Appraisal
 Assassin
 ＨＰ自動回復
 Automatic HP Recovery
+打撃耐性
+Bashing Resistance
 魔闘法
 Battle Magic
 気闘法
@@ -36,10 +38,12 @@ Black Magic
 Black Resistance
 集中
 Concentration
-腐蝕耐性
-Decay Resistance
 破壊強化
 Damage Enhancement
+破壊耐性
+Damage Resistance
+腐蝕耐性
+Decay Resistance
 探知
 Detection
 エルローランダネル
@@ -64,8 +68,12 @@ Fainting Resistance
 Fear Resistance
 悪食
 Filth Eater
+火耐性
+Fire Resistance
 猛毒攻撃
 Greater Poison Attack
+猛毒耐性
+Greater Poison Resistance
 剛力
 Greater Strength
 堅牢
@@ -132,6 +140,8 @@ Shadow Magic
 Slaine Zagan Analeicht
 斬撃強化
 Slashing Enhancement
+斬撃耐性
+Slashing Resistance
 スモールレッサータラテクト
 Small Lesser Taratekt
 スモールポイズンタラテクト
@@ -155,7 +165,7 @@ Thread Manipulation
 糸の才能
 Thread Talent
 投擲
-Throw
+Throwing
 堅固
 Toughness
 視覚領域拡張
