@@ -138,6 +138,8 @@ Toughness
 Visible Spectrum Expansion
 生命
 Vitality
+弱い
+Weak
 気力付与
 Willpower Allocation
 

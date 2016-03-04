@@ -181,10 +181,16 @@ def parse(text):
     # First line is the title, level and name
     lines = text.splitlines()
 
-    # Sanity check: second line should say 'attributes'
+    # Sanity check: second line should say 'Statistics'
+    STATISTICS = 'ステータス'
     if len(lines) > 1:
-        lines[1].index('ステータス')
+        lines[1].index(STATISTICS)
     output = {}
+
+    # For weak appraisal, you can get a one-word summary like "Weak"
+    headsplit = [x for x in re.split('　+', lines[1]) if len(x)]
+    if headsplit[0] == STATISTICS and len(headsplit[1]):
+        output['stats_summary'] = translate(headsplit[1])
 
     if text.find('ステータスの鑑定に失敗しました') >= 0:
         output['failed_appraise'] = True
@@ -249,7 +255,10 @@ def print_plain(parsed, out):
         out.write(' ― LV %d' % parsed['level'])
     if 'name' in parsed:
         out.write(' ― %s' % parsed['name'])
-    out.write('\n\nStatistics:\n')
+    out.write('\n\nStatistics:')
+    if 'stats_summary' in parsed:
+        out.write(' ' + parsed['stats_summary'])
+    out.write('\n')
 
     # Stats.
     if 'hp' in parsed:
