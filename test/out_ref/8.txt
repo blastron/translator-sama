@@ -1,5 +1,4 @@
 ゾア・エレ ― LV 3 ― (no name)
-
 Statistics:
 HP: 236/236 (green) (21 up)
 MP: 1431/1431 (blue) (1120 up)
@@ -17,4 +16,3 @@ Skill points available: 0
 
 Titles:
 [Filth Eater] • [Kin Eater] • [Assassin] • [魔物殺し] • [毒術師] • [糸使い] • [無慈悲] • [魔物の殺戮者] • [傲慢の支配者] • [忍耐の支配者] • [叡智の支配者 (new)]
-

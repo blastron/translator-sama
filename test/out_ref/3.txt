@@ -1,5 +1,4 @@
 Small Taratekt ― LV 2 ― (no name)
-
 Statistics:
 HP: 36/36 (green)
 MP: 36/36 (blue)
@@ -9,4 +8,3 @@ Avg. Defense: 19
 Avg. Magic Power: 18
 Avg. Resistance: 18
 Avg. Speed: 348
-

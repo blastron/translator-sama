@@ -1,5 +1,4 @@
 Small Poison Taratekt ― LV 5 ― (no name)
-
 Statistics:
 HP: 83/83 (green)
 MP: 181/181 (blue)
@@ -14,4 +13,3 @@ Skills:
 [Automatic HP Recovery (LV 5)] • [Accelerated MP Recovery (LV 3)] • [MP Consumption Reduction (LV 2)] • [Accelerated SP Recovery (LV 2)] • [SP Consumption Reduction (LV 2)] • [Damage Enhancement (LV 1)] • [Slashing Enhancement (LV 1)] • [Poison Enhancement (LV 2)] • [Battle Spirit (LV 1)] • [Willpower Allocation (LV 2)] • [Greater Poison Attack (LV 3)] • [Poison Synthesis (LV 7)] • [Thread Talent (LV 3)] • [Spider Silk (LV 9)] • [Severing Thread (LV 6)] • [Thread Manipulation (LV 8)] • [Throwing (LV 6)] • [3-D Maneuvering (LV 3)] • [Concentration (LV 9)] • [予測 (LV 8)] • [並列思考 (LV 4)] • [演算処理 (LV 6)] • [Aiming (LV 7)] • [Evasion (LV 3)] • [Appraisal (LV 8)] • [Detection (LV 6)] • [Stealth (LV 7)] • [Hell] • [Black Magic (LV 3)] • [Shadow Magic (LV 2)] • [Poison Magic (LV 2)] • [Abyssal Magic (LV 10)] • [Pride] • [Overeating (LV 7)] • [Night Vision (LV 10)] • [Visible Spectrum Expansion (LV 2)] • [Damage Resistance (LV 1)] • [Bashing Resistance (LV 2)] • [Slashing Resistance (LV 3)] • [Fire Resistance (LV 1)] • [Greater Poison Resistance (LV 2)] • [Paralysis Resistance (LV 3)] • [Petrification Resistance (LV 3)] • [Acid Resistance (LV 4)] • [Decay Resistance (LV 3)] • [Fainting Resistance (LV 2)] • [Fear Resistance (LV 6)] • [Black Magic Resistance (LV 3)] • [Ignore Pain] • [Pain Tolerance (LV 7)] • [Enhanced Vision (LV 8)] • [Enhanced Hearing (LV 8)] • [Enhanced Smell (LV 7)] • [Enhanced Taste (LV 4)] • [Enhanced Touch (LV 6)] • [Vitality (LV 7)] • [Mana Pool (LV 8)] • [Alacrity (LV 7)] • [Endurance (LV 7)] • [Greater Strength (LV 3)] • [Greater Toughness (LV 3)] • [Resistance (LV 3)] • [Kartikeya (LV 3)] • [Taboo (LV 4)] • [ｎ％Ｉ＝Ｗ]
 
 Skill points available: 180
-

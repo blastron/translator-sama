@@ -30,7 +30,7 @@ ONE_SKILL_PER_LINE = False # set to True to activate
 ONE_TITLE_PER_LINE = False # set to True to activate
 
 # Output markdown or plain text
-MARKDOWN = True
+MARKDOWN = False
 
 ##### END OF CONFIGURATION
 
