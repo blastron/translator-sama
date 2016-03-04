@@ -36,6 +36,8 @@ Decay Resistance
 Destruction Enhancement
 探知
 Detection
+エルローランダネル
+Elro Randanel
 持久
 Endurance
 聴覚強化
