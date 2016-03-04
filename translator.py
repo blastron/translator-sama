@@ -308,6 +308,8 @@ def print_output(parsed, out):
     # Skills.
     if 'skills' in parsed and len(parsed['skills']):
         md_quote(out)
+        out.write('\n')
+        md_quote(out)
         out.write('Skills:\n')
         skill_prints = []
         for skill in parsed['skills']:
