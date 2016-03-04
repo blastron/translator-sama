@@ -2,6 +2,8 @@
 # Skills, titles, and names can go here.
 なし
 (no name)
+立体機動
+3-D Maneuvering
 深淵魔法
 Abyssal Magic
 ＭＰ回復速度
@@ -152,4 +154,5 @@ Vitality
 Weak
 気力付与
 Willpower Allocation
-
+叡智
+Wisdom
