@@ -246,9 +246,9 @@ def print_plain(parsed, out):
     # Print header.
     out.write(parsed['kind'])
     if 'level' in parsed:
-        out.write(' ―  LV %d' % parsed['level'])
+        out.write(' ― LV %d' % parsed['level'])
     if 'name' in parsed:
-        out.write(' ―  %s' % parsed['name'])
+        out.write(' ― %s' % parsed['name'])
     out.write('\n\nStatistics:\n')
 
     # Stats.
