@@ -8,6 +8,7 @@ import traceback
 
 
 ### CONFIGURATION
+# TODO: Use argparse instead.
 
 # Input file goes here. Can be overridden by first command line argument.
 INPUT_FNAME = './input.txt'
@@ -27,6 +28,9 @@ ONE_SKILL_PER_LINE = False # set to True to activate
 
 # If True, titles are broken down line by line. I find this easier to read.
 ONE_TITLE_PER_LINE = False # set to True to activate
+
+# Output markdown or plain text
+MARKDOWN = True
 
 ##### END OF CONFIGURATION
 
@@ -249,74 +253,102 @@ def print_skill_or_title(skill):
     sk_str += ']'
     return sk_str
 
-def print_plain(parsed, out):
+def md_quote(out, times=1):
+    if MARKDOWN:
+        for i in range(times):
+            out.write('> ')
+
+def md_break(out):
+    if MARKDOWN:
+        out.write('  ')  # Write two spaces to force a line break.
+    out.write('\n')
+
+def stat_line(out, string):
+    md_quote(out, 2)
+    out.write(string)
+    md_break(out)
+
+def print_output(parsed, out):
     # Print header.
+    md_quote(out)
     out.write(parsed['kind'])
     if 'level' in parsed:
         out.write(' ― LV %d' % parsed['level'])
     if 'name' in parsed:
         out.write(' ― %s' % parsed['name'])
-    out.write('\n\nStatistics:')
+    md_break(out)
+
+    # Statistics: (Weak)?
+    md_quote(out)
+    out.write('Statistics:')
     if 'stats_summary' in parsed:
         out.write(' ' + parsed['stats_summary'])
-    out.write('\n')
+    md_break(out)
 
     # Stats.
     if 'hp' in parsed:
-        out.write('HP: %s\n' % print_stat(parsed, 'hp', 'green'))
+        stat_line(out, 'HP: %s' % print_stat(parsed, 'hp', 'green'))
     if 'mp' in parsed:
-        out.write('MP: %s\n' % print_stat(parsed, 'mp', 'blue'))
+        stat_line(out, 'MP: %s' % print_stat(parsed, 'mp', 'blue'))
     if 'sp_short' in parsed and 'sp_long' in parsed:
-        out.write('SP: %s, %s\n' % (
+        stat_line(out, 'SP: %s, %s' % (
             print_stat(parsed, 'sp_short', 'yellow'),
             print_stat(parsed, 'sp_long', 'red')))
     if 'avg_offense' in parsed:
-        out.write(print_attr(parsed, 'avg_offense', 'Avg. Offense') + '\n')
+        stat_line(out, print_attr(parsed, 'avg_offense', 'Avg. Offense'))
     if 'avg_defense' in parsed:
-        out.write(print_attr(parsed, 'avg_defense', 'Avg. Defense') + '\n')
+        stat_line(out, print_attr(parsed, 'avg_defense', 'Avg. Defense'))
     if 'avg_magic' in parsed:
-        out.write(print_attr(parsed, 'avg_magic', 'Avg. Magic Power') + '\n')
+        stat_line(out, print_attr(parsed, 'avg_magic', 'Avg. Magic Power'))
     if 'avg_resist' in parsed:
-        out.write(print_attr(parsed, 'avg_resist', 'Avg. Resistance') + '\n')
+        stat_line(out, print_attr(parsed, 'avg_resist', 'Avg. Resistance'))
     if 'avg_speed' in parsed:
-        out.write(print_attr(parsed, 'avg_speed', 'Avg. Speed') + '\n')
+        stat_line(out, print_attr(parsed, 'avg_speed', 'Avg. Speed'))
 
     # Skills.
     if 'skills' in parsed and len(parsed['skills']):
-        out.write('\nSkills:\n')
+        md_quote(out)
+        out.write('Skills:\n')
         skill_prints = []
         for skill in parsed['skills']:
             skill_prints.append(print_skill_or_title(skill))
         if ONE_SKILL_PER_LINE:
             for skill in skill_prints:
-                out.write('  • %s\n' % skill)
+                stat_line(out, '  • %s' % skill)
         else:
+            md_quote(out, 2)
             out.write(' • '.join(skill_prints))
             out.write('\n')
 
     # Skill Points.
     if 'skill_points' in parsed:
-        out.write('\nSkill points available: %s\n' %
+        md_quote(out)
+        out.write('\n')
+        md_quote(out)
+        out.write('Skill points available: %s\n' %
                 '{:,}'.format(parsed['skill_points']))
 
     # Titles.
     if 'titles' in parsed and len(parsed['titles']):
-        out.write('\nTitles:\n')
+        md_quote(out)
+        out.write('\n')
+        md_quote(out)
+        out.write('Titles:\n')
         title_prints = []
         for title in parsed['titles']:
             title_prints.append(print_skill_or_title(title))
         if ONE_TITLE_PER_LINE:
             for title in title_prints:
-                out.write('  • %s\n' % title)
+                stat_line('  • %s' % title)
         else:
+            md_quote(out, 2)
             out.write(' • '.join(title_prints))
             out.write('\n')
 
     # Failed appraise.
     if 'failed_appraise' in parsed and parsed['failed_appraise']:
-        out.write('\nFailed to appraise statistics.\n')
-
-    out.write('\n')
+        md_quote(out)
+        out.write('Failed to appraise statistics.\n')
 
 def process_file(in_fname, out_fname):
     with open(ERROR_FNAME, 'w+') as error_file:
@@ -324,10 +356,10 @@ def process_file(in_fname, out_fname):
             parsed = None
             with open(in_fname, 'r') as input_file:
                 parsed = parse(input_file.read())
-            print_plain(parsed, sys.stdout)
+            print_output(parsed, sys.stdout)
             if out_fname:
                 with open(out_fname, 'w+') as output_file:
-                    print_plain(parsed, output_file)
+                    print_output(parsed, output_file)
         except:
             traceback.print_exc(None, error_file)
 
