@@ -2,6 +2,7 @@
 # coding=utf8
 
 import argparse
+import functools
 import re
 import string
 import sys
@@ -77,6 +78,9 @@ def read_dictionary_file():
             jp_line = not jp_line
     return output
 
+def dictionary_cmp(pair1, pair2):
+    return cmp(pair1[1], pair2[1]) or cmp(pair1[0], pair2[0])
+
 def write_dictionary_file(dictionary, missing_words):
     pairs = []
     for jp_word in missing_words:
@@ -84,7 +88,7 @@ def write_dictionary_file(dictionary, missing_words):
     for jp_word in dictionary:
         pairs.append((jp_word, dictionary[jp_word]))
     # Sort by English word, then Japanese
-    pairs.sort(key=lambda pair: pair[1].lower() + pair[0].lower())
+    pairs.sort(key=functools.cmp_to_key(dictionary_cmp))
 
     # Print to dictionary
     with open(args.dictionary, 'w+') as dict_file:
