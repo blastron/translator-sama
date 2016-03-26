@@ -27,12 +27,21 @@ parser.add_argument('--md', action='store_true', default=False,
         help='Output Markdown instead of plain text')
 parser.add_argument('--print', action='store_true', default=False,
         dest='doprint', help='Only print to stdout instead of saving to file')
+parser.add_argument('--update_dict', action='store_true', default=False,
+        help='Alphabetize and write new words to the dictionary file')
 
 args = parser.parse_args()
 
 ##### END OF CONFIGURATION
 
 
+
+dictionary_header = """
+# Add Japanese word first, then English word, line by line.
+# Skills, titles, and names can go here.
+""".strip();
+
+missing_word_placeholder = '--NEEDS TRANSLATION--'
 
 def translate_numbers(x):
     """Translate Japanese wide numbers to regular numbers."""
@@ -61,19 +70,43 @@ def read_dictionary_file():
             if re.match('^\s*#', line):
                 continue
             if jp_line:
-                jp_word = line.strip()
+                jp_word = line
             else:
-                output[jp_word] = line.strip()
+                if line != missing_word_placeholder:
+                    output[jp_word] = line.strip()
             jp_line = not jp_line
     return output
 
+def write_dictionary_file(dictionary, missing_words):
+    pairs = []
+    for jp_word in missing_words:
+        pairs.append((jp_word, missing_word_placeholder))
+    for jp_word in dictionary:
+        pairs.append((jp_word, dictionary[jp_word]))
+    # Sort by English word, then Japanese
+    pairs.sort(key=lambda pair: pair[1].lower() + pair[0].lower())
+
+    # Print to dictionary
+    with open(args.dictionary, 'w+') as dict_file:
+        dict_file.write(dictionary_header)
+        dict_file.write('\n')
+        for pair in pairs:
+            dict_file.write(pair[0])
+            dict_file.write('\n')
+            dict_file.write(pair[1])
+            dict_file.write('\n')
+
+
 dictionary = read_dictionary_file()
+missing_words = {}
 
 def translate(word):
     """Tries to find translated word. Output as is otherwise."""
     word = re.sub('　', ' ', word)
     if word in dictionary:
         return dictionary[word.strip()]
+    else:
+        missing_words[word] = True
     return word
 
 def read_plus_and_up(line, tag, output):
@@ -372,6 +405,8 @@ def process_file(in_fname, out_fname):
             if not args.doprint and out_fname:
                 with open(out_fname, 'w+') as output_file:
                     print_output(parsed, output_file)
+            if args.update_dict:
+                write_dictionary_file(dictionary, missing_words)
         except:
             traceback.print_exc(None, error_file)
 
