@@ -4,6 +4,7 @@
 import argparse
 import functools
 import re
+import shutil
 import string
 import sys
 import traceback
@@ -29,7 +30,8 @@ parser.add_argument('--md', action='store_true', default=False,
 parser.add_argument('--print', action='store_true', default=False,
         dest='doprint', help='Only print to stdout instead of saving to file')
 parser.add_argument('--update_dict', action='store_true', default=False,
-        help='Alphabetize and write new words to the dictionary file')
+        help='Alphabetize and write new words to the dictionary file. '
+        'The old dictionary file is saved as a backup (.bak).')
 
 args = parser.parse_args()
 
@@ -82,6 +84,9 @@ def dictionary_cmp(pair1, pair2):
     return cmp(pair1[1], pair2[1]) or cmp(pair1[0], pair2[0])
 
 def write_dictionary_file(dictionary, missing_words):
+    # Save old dictionary as backup.
+    shutil.copy(args.dictionary, args.dictionary + '.bak')
+
     pairs = []
     for jp_word in missing_words:
         pairs.append((jp_word, missing_word_placeholder))
