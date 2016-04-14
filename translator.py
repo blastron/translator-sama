@@ -291,7 +291,8 @@ def print_skill_or_title(skill):
     if 'new' in skill and skill['new']:
         sk_str += ' (new)'
     sk_str += ']'
-    return sk_str
+    # Each skill/title is a non-breakable word
+    return sk_str.replace(' ', u'\xa0')
 
 def md_quote(out, times=1):
     if args.md:
@@ -365,7 +366,7 @@ def print_output(parsed, out):
                     out.write('  • %s\n' % skill)
         else:
             md_quote(out, 2)
-            out.write(' • '.join(skill_prints))
+            out.write(u'\xa0• '.join(skill_prints))
             out.write('\n')
 
     # Skill Points.
