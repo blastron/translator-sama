@@ -11,6 +11,8 @@ do
   python3 translator.py $input $output > /dev/null
   echo "diff $reference $output"
   diff $reference $output
+  echo "to update, run:"
+  echo "cp $output $reference"
   echo "==========================================="
   echo
 done

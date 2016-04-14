@@ -13,6 +13,8 @@ do
   python3 translator.py --md $input $output_md > /dev/null
   echo "diff $reference_md $output_md"
   diff $reference_md $output_md
+  echo "to update, run:"
+  echo "cp $output_md $reference_md"
   echo "==========================================="
   echo
 done
