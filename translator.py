@@ -291,8 +291,9 @@ def print_skill_or_title(skill):
     if 'new' in skill and skill['new']:
         sk_str += ' (new)'
     sk_str += ']'
-    # Each skill/title is a non-breakable word
-    return sk_str.replace(' ', u'\xa0')
+    sk_str = sk_str.replace(' ', u'\xa0')  # non-breaking space
+    sk_str = sk_str.replace('-', u'\u2011')  # (curse you, 3-D Maneuvering)
+    return sk_str
 
 def md_quote(out, times=1):
     if args.md:
