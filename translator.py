@@ -25,13 +25,15 @@ parser.add_argument('--split_skills', action='store_true', default=False,
         help='Print skills one per line.')
 parser.add_argument('--split_titles', action='store_true', default=False,
         help='Print titles one per line.')
-parser.add_argument('--md', action='store_true', default=False,
-        help='Output Markdown instead of plain text')
 parser.add_argument('--print', action='store_true', default=False,
         dest='doprint', help='Only print to stdout instead of saving to file')
-parser.add_argument('--update_dict', action='store_true', default=False,
+'''
+parser.add_argument('--md', action='store_true', default=True,
+        help='Output Markdown instead of plain text')
+parser.add_argument('--update_dict', action='store_true', default=True,
         help='Alphabetize and write new words to the dictionary file. '
         'The old dictionary file is saved as a backup (.bak).')
+'''
 
 args = parser.parse_args()
 
@@ -46,6 +48,14 @@ dictionary_header = """
 
 missing_word_placeholder = '--NEEDS TRANSLATION--'
 
+def should_output_markdown():
+    return True
+#    return args.md
+
+def should_update_dictionary():
+    return True
+#    return args.update_dict
+
 def translate_numbers(x):
     """Translate Japanese wide numbers to regular numbers."""
     x = re.sub("０", '0', x)
@@ -58,6 +68,11 @@ def translate_numbers(x):
     x = re.sub("７", '7', x)
     x = re.sub("８", '8', x)
     x = re.sub("９", '9', x)
+    return x
+
+def translate_keywords(x):
+    x = re.sub("ｕｐ", "up", x)
+    x = re.sub("ｎｅｗ", "new", x)
     return x
 
 def read_dictionary_file():
@@ -79,6 +94,9 @@ def read_dictionary_file():
                     output[jp_word] = line.strip()
             jp_line = not jp_line
     return output
+
+def cmp(a, b):
+    return (a > b) - (a < b)
 
 def dictionary_cmp(pair1, pair2):
     return cmp(pair1[1], pair2[1]) or cmp(pair1[0], pair2[0])
@@ -218,6 +236,7 @@ def read_header(title, output):
 
 def parse(text):
     text = translate_numbers(text)
+    text = translate_keywords(text)
     # Remove beginning and end quotes.
     text = re.sub(".*『", '', text)
     text = re.sub("』.*", '', text).strip()
@@ -296,12 +315,12 @@ def print_skill_or_title(skill):
     return sk_str
 
 def md_quote(out, times=1):
-    if args.md:
+    if should_output_markdown():
         for i in range(times):
             out.write('> ')
 
 def md_break(out):
-    if args.md:
+    if should_output_markdown():
         out.write('  ')  # Write two spaces to force a line break.
     out.write('\n')
 
@@ -360,7 +379,7 @@ def print_output(parsed, out):
             md_quote(out)
             out.write('\n')
             for skill in skill_prints:
-                if args.md:
+                if should_output_markdown():
                     md_quote(out)
                     out.write('+ %s\n' % skill)
                 else:
@@ -391,7 +410,7 @@ def print_output(parsed, out):
             md_quote(out)
             out.write('\n')
             for title in title_prints:
-                if args.md:
+                if should_output_markdown():
                     md_quote(out)
                     out.write('+ %s\n' % title)
                 else:
@@ -416,9 +435,10 @@ def process_file(in_fname, out_fname):
             if not args.doprint and out_fname:
                 with open(out_fname, 'w+') as output_file:
                     print_output(parsed, output_file)
-            if args.update_dict:
+            if should_update_dictionary():
                 write_dictionary_file(dictionary, missing_words)
         except:
+            print("An error occurred, see %s for details." % args.error_log)
             traceback.print_exc(None, error_file)
 
 # Main

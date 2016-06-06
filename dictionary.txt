@@ -2,6 +2,8 @@
 # Skills, titles, and names can go here.
 なし
 (no name)
+忍耐
+--NEEDS TRANSLATION--
 立体機動
 3-D Maneuvering
 深淵魔法
@@ -10,6 +12,8 @@ Abyssal Magic
 Accelerated MP Recovery
 ＳＰ回復速度
 Accelerated SP Recovery
+思考加速
+Accelerated Thought
 酸耐性
 Acid Resistance
 天の加護
@@ -20,32 +24,54 @@ Aiming
 Alaba, the Earth Dragon
 瞬発
 Alacrity
+万能糸
+All-Purpose Silk
 鑑定
 Appraisal
 暗殺者
 Assassin
 ＨＰ自動回復
 Automatic HP Recovery
+衝撃耐性
+Ballistic Resistance
 打撃耐性
 Bashing Resistance
 魔闘法
 Battle Magic
 気闘法
 Battle Spirit
-外道魔法
-Black Magic
-外道耐性
-Black Magic Resistance
+演算処理
+Computation
 集中
 Concentration
+断罪
+Conviction
+外道無効
+Corruption Immunity
+外道魔法
+Corruption Magic
+外道耐性
+Corruption Resistance
 破壊強化
 Damage Enhancement
 破壊耐性
 Damage Resistance
 腐蝕耐性
 Decay Resistance
+腐蝕攻撃
+Decaying Attack
 探知
 Detection
+神性領域拡張
+Divine Domain Expansion
+龍鱗
+Dragon Scales
+エルローゲネレイブ
+Elro Generaive
+エルローゲネラッシュ
+Elro Generash
+エルローピエクー
+Elro Pyeku
 エルローランダネル
 Elro Randanel
 持久
@@ -68,8 +94,14 @@ Fainting Resistance
 Fear Resistance
 悪食
 Filth Eater
+火竜
+Fire Drake
 火耐性
 Fire Resistance
+火強化
+Flame Enhancement
+予見
+Foresight
 猛毒攻撃
 Greater Poison Attack
 猛毒耐性
@@ -78,10 +110,14 @@ Greater Poison Resistance
 Greater Strength
 堅牢
 Greater Toughness
+炎熱無効
+Heat Nullification
 奈落
 Hell
 ハイフィンジゴアット
 High Finjegoat
+高速遊泳
+High-Speed Swimming
 人族
 Human
 苦痛無効
@@ -90,6 +126,12 @@ Ignore Pain
 Kartikeya
 血縁喰ライ
 Kin Eater
+生命変遷
+Life Conversion
+忍耐の支配者
+Lord of Patience
+傲慢の支配者
+Lord of Pride
 ＭＰ消費緩和
 MP Consumption Reduction
 術師
@@ -102,6 +144,14 @@ Mana Manipulation
 Mana Perception
 魔量
 Mana Pool
+無慈悲
+Merciless
+魔物の殺戮者
+Monster Slaughterer
+魔物殺し
+Monster Slayer
+並列思考
+Multitasking
 暗視
 Night Vision
 魔力撃
@@ -126,8 +176,16 @@ Poison Magic
 Poison Resistance
 毒合成
 Poison Synthesis
+毒術師
+Poison User
+予測
+Prediction
 傲慢
 Pride
+確率補正
+Probability Compensation
+高速演算
+Rapid Computation
 護法
 Resistance
 ＳＰ消費緩和
@@ -136,6 +194,10 @@ SP Consumption Reduction
 Severing Thread
 影魔法
 Shadow Magic
+無音
+Silence
+糸使い
+Silk User
 シュレイン・ザガン・アナレイト
 Slaine Zagan Analeicht
 斬撃強化
@@ -156,6 +218,8 @@ Spider Silk
 Stealth
 強力
 Strength
+遊泳
+Swimming
 剣の才能
 Sword Skill
 禁忌
@@ -178,3 +242,7 @@ Weak
 Willpower Allocation
 叡智
 Wisdom
+ゾア・エレ
+Zoa Ere
+ｎ％Ｉ＝Ｗ
+ｎ％Ｉ＝Ｗ
