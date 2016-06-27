@@ -70,11 +70,6 @@ def translate_numbers(x):
     x = re.sub("９", '9', x)
     return x
 
-def translate_keywords(x):
-    x = re.sub("ｕｐ", "up", x)
-    x = re.sub("ｎｅｗ", "new", x)
-    return x
-
 def read_dictionary_file():
     output = {}
     jp_line = True
@@ -137,10 +132,12 @@ def translate(word):
     return word
 
 def read_plus_and_up(line, tag, output):
+    print(line)
     plus_match = re.search('＋(\d+)', line)
     if plus_match:
         output[tag + '_plus'] = int(plus_match.group(1))
     up_match = re.search('\((\d+)up\)', line)
+    if not up_match: up_match = re.search('（(\d+)ｕｐ）', line)
     if up_match:
         output[tag + '_up'] = int(up_match.group(1))
 
@@ -163,11 +160,14 @@ def match_attrib_1(lines, regex, tag, output):
 
 def read_up_and_new(line, output):
     up_match = re.search('\((\d+)up\)', line)
+    if not up_match: up_match = re.search('（(\d+)up）', line)
     if up_match:
         output['up'] = int(up_match.group(1))
+
     new_match = re.search('\(new\)', line)
     if new_match:
         output['new'] = True
+        
 
 def read_skills(lines, output):
     skill_header_found = False
@@ -236,7 +236,6 @@ def read_header(title, output):
 
 def parse(text):
     text = translate_numbers(text)
-    text = translate_keywords(text)
     # Remove beginning and end quotes.
     text = re.sub(".*『", '', text)
     text = re.sub("』.*", '', text).strip()
@@ -288,7 +287,8 @@ def print_stat(parsed, tag, color):
     if (tag + '_plus') in parsed:
         stat += ' +%d' % parsed[tag + '_plus']
     if (tag + '_up') in parsed:
-        stat += ' (%d up)' % parsed[tag + '_up']
+        bold = "**" if should_output_markdown() else ""
+        stat += ' %s(%d up)%s' % (bold, parsed[tag + '_up'], bold)
     return stat
 
 def print_attr(parsed, tag, name):
@@ -298,7 +298,8 @@ def print_attr(parsed, tag, name):
     if (tag + '_plus') in parsed:
         attr += ' +%d' % parsed[tag + '_plus']
     if (tag + '_up') in parsed:
-        attr += ' (%d up)' % parsed[tag + '_up']
+        bold = "**" if should_output_markdown() else ""
+        attr += ' %s(%d up)%s' % (bold, parsed[tag + '_up'], bold)
     return attr
 
 def print_skill_or_title(skill):
@@ -306,9 +307,11 @@ def print_skill_or_title(skill):
     if 'level' in skill:
         sk_str += ' (LV %d)' % skill['level']
     if 'up' in skill:
-        sk_str += ' (%dup)' % skill['up']
+        bold = "**" if should_output_markdown() else ""
+        sk_str += ' %s(%dup)%s' % (bold, skill['up'], bold)
     if 'new' in skill and skill['new']:
-        sk_str += ' (new)'
+        bold = "**" if should_output_markdown() else ""
+        sk_str += ' %s(new)%s' % (bold, bold)
     sk_str += ']'
     sk_str = sk_str.replace(' ', u'\xa0')  # non-breaking space
     sk_str = sk_str.replace('-', u'\u2011')  # (curse you, 3-D Maneuvering)
