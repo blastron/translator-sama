@@ -1,9 +1,35 @@
 # Add Japanese word first, then English word, line by line.
 # Skills, titles, and names can go here.
+呪いの邪眼
+Evil Eye of Curses
+死滅の邪眼
+Evil Eye of Destruction
+麻痺の邪眼
+Evil Eye of Paralysis
+石化の邪眼
+Evil Eye of Petrification
+不快の邪眼
+Evil Eye of Disquiet
+幻痛の邪眼
+Evil Eye of Phantom Pain
+狂気の邪眼
+Evil Eye of Madness
+魅了の邪眼
+Evil Eye of Fascination
+催眠の邪眼
+Evil Eye of Hypnotism
+恐怖の邪眼
+Evil Eye of Dread
+
+
+身命
+Greater Vitality
+望遠
+Telescopic Sight
+並列意思
+Multiple Wills
 なし
 (no name)
-忍耐
---NEEDS TRANSLATION--
 立体機動
 3-D Maneuvering
 深淵魔法
@@ -66,6 +92,8 @@ Detection
 Divine Domain Expansion
 龍鱗
 Dragon Scales
+エルローデベギアード
+Elro Devgyard
 エルローゲネレイブ
 Elro Generaive
 エルローゲネラッシュ
@@ -162,6 +190,8 @@ Overeating
 Pain Tolerance
 麻痺耐性
 Paralysis Resistance
+忍耐
+Patience
 石化耐性
 Petrification Resistance
 毒攻撃
